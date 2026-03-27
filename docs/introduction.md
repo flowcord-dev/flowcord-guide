@@ -46,4 +46,4 @@ A button action mutates state, and FlowCord automatically re-renders the menu. T
 
 If you're new to FlowCord, start with [Installation](./getting-started/installation.md) and work through the [Quick Start](./getting-started/quick-start.md).
 
-If you want to understand how FlowCord works internally — the interaction loop, session lifecycle, component ID encoding — see [ARCHITECTURE.md](https://github.com/flowcord-dev/flowcord-core/blob/master/ARCHITECTURE.md) in the flowcord-core repository.
+If you want to understand how FlowCord works internally — the interaction loop, session lifecycle, component ID encoding — see [ARCHITECTURE.md](https://github.com/flowcord-dev/flowcord-core/blob/HEAD/ARCHITECTURE.md) in the flowcord-core repository.
