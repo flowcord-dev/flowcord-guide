@@ -19,7 +19,6 @@ const config: Config = {
 
   // Warn during construction — sidebar references docs that don't exist yet
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
