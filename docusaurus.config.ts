@@ -86,7 +86,7 @@ const config: Config = {
             },
             {
               label: 'npm',
-              href: 'https://www.npmjs.com/package/flowcord',
+              href: 'https://www.npmjs.com/package/@flowcord/core',
             },
           ],
         },
