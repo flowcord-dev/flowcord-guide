@@ -19,7 +19,9 @@ const sidebars: SidebarsConfig = {
       label: 'Core Concepts',
       link: {type: 'generated-index'},
       items: [
-        // PRs 3–5
+        'core-concepts/menus-and-sessions',
+        'core-concepts/menu-context',
+        // PRs 4–5
       ],
     },
     {
