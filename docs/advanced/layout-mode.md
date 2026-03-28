@@ -8,7 +8,7 @@ Layout mode uses Discord's Components v2 system, which allows richer, more flexi
 
 ## Bot flag requirement
 
-Components v2 messages require your bot to have the **Message Content Intent** and use the `IsComponentsV2` message flag when sending. FlowCord handles the flag automatically when a menu is in layout mode, but your bot application must have the intent enabled in the [Discord Developer Portal](https://discord.com/developers/applications).
+Components v2 messages require the `IsComponentsV2` message flag. FlowCord sets this flag automatically when a menu is in layout mode — no additional intents or manual flags needed.
 
 ## Switching to layout mode
 

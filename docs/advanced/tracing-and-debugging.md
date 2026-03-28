@@ -66,7 +66,7 @@ Navigation tracing is in-memory and process-scoped. Events accumulate for the li
 
 ### Default behaviour
 
-If no `onError` handler is configured, FlowCord catches unhandled session errors and replies to the user with a dark-red embed showing the error message. If the interaction has already been deferred or replied to, it edits the reply instead.
+If no `onError` handler is configured, FlowCord catches unhandled session errors and sends the user an ephemeral dark-red embed with the error message. If the interaction has already been deferred or replied to, it edits the existing reply instead.
 
 ### Custom error handler
 
