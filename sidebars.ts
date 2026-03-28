@@ -9,7 +9,9 @@ const sidebars: SidebarsConfig = {
       label: 'Getting Started',
       link: {type: 'generated-index'},
       items: [
-        // PR 2
+        'getting-started/installation',
+        'getting-started/quick-start',
+        'getting-started/project-setup',
       ],
     },
     {

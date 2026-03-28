@@ -15,19 +15,24 @@ FlowCord handles all of that. You define *what* your menu looks like and *what h
 ## What it looks like
 
 ```ts
-const weatherMenu = new MenuBuilder()
-  .setup(() => ({ city: 'London', unit: 'celsius' }))
-  .setEmbeds((ctx) => [
-    new EmbedBuilder()
-      .setTitle(`Weather in ${ctx.state.get('city')}`)
-      .setDescription(`Unit: ${ctx.state.get('unit')}`)
-  ])
-  .setButtons((ctx) => [
-    { label: 'Switch to °F', action: async () => ctx.state.set('unit', 'fahrenheit') },
-    { label: 'Switch to °C', action: async () => ctx.state.set('unit', 'celsius') },
-  ])
-  .setCancellable()
-  .build();
+flowcord.registerMenu('weather', (session) =>
+  new MenuBuilder(session, 'weather')
+    .setup((ctx) => {
+      ctx.state.set('city', 'London');
+      ctx.state.set('unit', 'celsius');
+    })
+    .setEmbeds((ctx) => [
+      new EmbedBuilder()
+        .setTitle(`Weather in ${ctx.state.get('city')}`)
+        .setDescription(`Unit: ${ctx.state.get('unit')}`)
+    ])
+    .setButtons((ctx) => [
+      { label: 'Switch to °F', style: ButtonStyle.Secondary, action: async (ctx) => ctx.state.set('unit', 'fahrenheit') },
+      { label: 'Switch to °C', style: ButtonStyle.Secondary, action: async (ctx) => ctx.state.set('unit', 'celsius') },
+    ])
+    .setCancellable()
+    .build()
+);
 ```
 
 A button action mutates state, and FlowCord automatically re-renders the menu. There are no collectors to manage, no `message.edit()` calls to coordinate, no interaction acknowledgement boilerplate.
