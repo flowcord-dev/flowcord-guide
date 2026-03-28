@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 06 — Pagination & Guards
+# Pagination & Guards
 
 **Slash command:** `/shop`
 

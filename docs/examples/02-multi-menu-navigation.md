@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 02 — Multi-Menu Navigation
+# Multi-Menu Navigation
 
 **Slash command:** `/cookbook`
 

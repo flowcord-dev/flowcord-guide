@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 01 — Quick Start
+# Quick Start
 
 **Slash command:** `/weather`
 

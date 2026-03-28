@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 05 — Select Menus & Modals
+# Select Menus & Modals
 
 **Slash command:** `/event`
 

@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 04 — Sub-Menu Continuation
+# Sub-Menu Continuation
 
 **Slash command:** `/party`
 
