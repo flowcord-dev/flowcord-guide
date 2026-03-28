@@ -23,7 +23,8 @@ const sidebars: SidebarsConfig = {
         'core-concepts/menu-context',
         'core-concepts/render-modes',
         'core-concepts/navigation',
-        // PR 5
+        'core-concepts/state-management',
+        'core-concepts/lifecycle-hooks',
       ],
     },
     {
