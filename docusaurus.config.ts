@@ -42,6 +42,14 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'alpha',
+      content:
+        '⚠️ FlowCord is currently in alpha — APIs may change between releases. See the <a href="https://github.com/flowcord-dev/flowcord-core/releases" target="_blank" rel="noopener noreferrer">changelog</a>.',
+      backgroundColor: '#f0ad4e',
+      textColor: '#1a1a1a',
+      isCloseable: true,
+    },
     image: 'img/social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,

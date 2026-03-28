@@ -6,6 +6,10 @@ sidebar_position: 1
 
 FlowCord is a lifecycle-driven interactive menu framework for [Discord.js](https://discord.js.org). It provides a declarative, type-safe builder API for creating multi-step interactive flows — menus with buttons, select menus, modals, pagination, and navigation — without managing the Discord interaction loop yourself.
 
+:::caution Alpha
+FlowCord is in alpha. The API is functional but may change between releases — check the [changelog](https://github.com/flowcord-dev/flowcord-core/releases) before upgrading.
+:::
+
 ## The problem it solves
 
 Building interactive Discord bot UIs with raw Discord.js requires a lot of repetitive boilerplate: collecting interactions, routing them to the right handler, re-rendering messages, managing timeouts, and tracking where in a flow the user is. This code is easy to get wrong and hard to maintain as your bot grows.
