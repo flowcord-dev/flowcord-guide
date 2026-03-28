@@ -20,7 +20,7 @@ Buttons are defined via `.setButtons()` in embeds mode, or via the `button()` he
 | `id` | `string` | No | Custom component ID — auto-assigned if omitted |
 | `fixedPosition` | `'start' \| 'end'` | No | Pins button across pagination pages (embeds mode only) |
 
-`action` or `opensModal` must be present for all non-link buttons. Disabled buttons are validated the same way as active buttons — `action` or `opensModal` is still required even when `disabled: true`.
+`action` or `opensModal` must be present unless `disabled: true` or the button is a link button.
 
 ## Button styles
 
@@ -83,7 +83,7 @@ Set `disabled: true` to render a button as greyed out and unclickable. Useful fo
 }
 ```
 
-A disabled button still requires either `action` or `opensModal` to be defined — the validation happens before the disabled state is evaluated.
+A disabled button does not require `action` or `opensModal` — the validator skips that check when `disabled: true`. You can omit both if the button is purely decorative (e.g., a greyed-out label for context).
 
 ## Modal trigger buttons
 
