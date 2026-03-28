@@ -42,7 +42,10 @@ const sidebars: SidebarsConfig = {
       label: 'Advanced',
       link: {type: 'generated-index'},
       items: [
-        // PRs 7–8
+        'advanced/pagination',
+        'advanced/sub-menus',
+        'advanced/guards-and-pipelines',
+        // PR 8
       ],
     },
     {
