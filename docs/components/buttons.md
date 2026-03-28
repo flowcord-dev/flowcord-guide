@@ -20,7 +20,7 @@ Buttons are defined via `.setButtons()` in embeds mode, or via the `button()` he
 | `id` | `string` | No | Custom component ID — auto-assigned if omitted |
 | `fixedPosition` | `'start' \| 'end'` | No | Pins button across pagination pages (embeds mode only) |
 
-`action` or `opensModal` must be present unless `disabled: true` or the button is a link button.
+`action` or `opensModal` must be present for all non-link buttons. Disabled buttons are validated the same way as active buttons — `action` or `opensModal` is still required even when `disabled: true`.
 
 ## Button styles
 
@@ -131,4 +131,4 @@ When pagination is active, all buttons cycle through pages by default. `fixedPos
 ], { pagination: { perPage: 5 } })
 ```
 
-Fixed buttons count toward the total button limit per page. See [Pagination](/docs/advanced/pagination) for more.
+Fixed buttons count toward the total button limit per page.

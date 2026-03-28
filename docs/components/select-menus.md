@@ -89,7 +89,10 @@ import { RoleSelectMenuBuilder } from 'discord.js';
     .setPlaceholder('Assign a role...'),
   onSelect: async (ctx, values) => {
     const roleId = values[0];
-    await guild.members.cache.get(userId)?.roles.add(roleId);
+    const guild = ctx.interaction.guild;
+    if (!guild) return;
+    const member = await guild.members.fetch(ctx.interaction.user.id);
+    await member.roles.add(roleId);
   },
 }))
 ```
