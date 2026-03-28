@@ -60,6 +60,12 @@ const config: Config = {
           label: 'Guide',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'apiSidebar',
+          position: 'left',
+          label: 'API Reference',
+        },
+        {
           href: 'https://github.com/flowcord-dev/flowcord-core',
           label: 'GitHub',
           position: 'right',

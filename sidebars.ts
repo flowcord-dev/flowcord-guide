@@ -66,7 +66,10 @@ const sidebars: SidebarsConfig = {
       label: 'API Reference',
       link: {type: 'generated-index'},
       items: [
-        // PR 9
+        'api-reference/flowcord-class',
+        'api-reference/menu-builder',
+        'api-reference/built-in-actions',
+        'api-reference/context',
       ],
     },
   ],
