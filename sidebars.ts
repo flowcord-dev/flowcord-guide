@@ -21,7 +21,9 @@ const sidebars: SidebarsConfig = {
       items: [
         'core-concepts/menus-and-sessions',
         'core-concepts/menu-context',
-        // PRs 4–5
+        'core-concepts/render-modes',
+        'core-concepts/navigation',
+        // PR 5
       ],
     },
     {
