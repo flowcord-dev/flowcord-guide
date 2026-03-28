@@ -45,7 +45,9 @@ const sidebars: SidebarsConfig = {
         'advanced/pagination',
         'advanced/sub-menus',
         'advanced/guards-and-pipelines',
-        // PR 8
+        'advanced/layout-mode',
+        'advanced/fallback-menus',
+        'advanced/tracing-and-debugging',
       ],
     },
     {
