@@ -60,7 +60,7 @@ rest
   .catch(console.error);
 ```
 
-Run this once with `npx ts-node register-commands.ts`. The commands will appear in Discord within a few seconds.
+Run this once with `npx tsx register-commands.ts`. The commands will appear in Discord within a few seconds.
 
 ## Environment variables
 

@@ -138,7 +138,7 @@ rest
   .catch(console.error);
 ```
 
-Run this once with `npx ts-node register-commands.ts`, then start your bot. The `/weather` command will appear within a few seconds.
+Run this once with `npx tsx register-commands.ts`, then start your bot. The `/weather` command will appear within a few seconds.
 
 ## What you have
 
