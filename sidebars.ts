@@ -53,9 +53,14 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Examples',
-      link: {type: 'generated-index'},
+      link: {type: 'doc', id: 'examples/index'},
       items: [
-        // PR 10
+        'examples/quickstart',
+        'examples/multi-menu-navigation',
+        'examples/state-and-lifecycle',
+        'examples/sub-menu-continuation',
+        'examples/selects-and-modals',
+        'examples/pagination-and-guards',
       ],
     },
   ],
