@@ -52,7 +52,9 @@ onLeave          ← Menu being exited
 
 ### `setup(ctx)`
 
-Runs **once** when the menu instance is created, before `onEnter`. Use it to initialize `ctx.state` — state starts as an empty object and `setup()` is the only guaranteed one-time initialization point.
+Runs **once per menu instance creation**, before `onEnter`. Use it to initialize `ctx.state` — state starts as an empty object and `setup()` is the only guaranteed initialization point.
+
+When you navigate away and then `goBack()` to a menu **without** `.setPreserveStateOnReturn()`, the menu factory re-runs and a new instance is created — `setup()` fires again. With `.setPreserveStateOnReturn()`, the existing instance is reused and `setup()` is skipped; state is restored from snapshot instead.
 
 ```ts
 .setup((ctx) => {
@@ -64,9 +66,6 @@ Runs **once** when the menu instance is created, before `onEnter`. Use it to ini
     ctx.sessionState.set('userId', ctx.interaction.user.id);
   }
 })
-```
-
-`setup()` is skipped when returning to a menu that has `.setPreserveStateOnReturn()` configured — state is restored from snapshot instead.
 
 :::note
 `setup()` is defined via `.setup(fn)` on the builder, not `.onEnter()`. Unlike the other hooks, it doesn't fire on every entry — only on creation.

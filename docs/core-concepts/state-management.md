@@ -85,7 +85,7 @@ new MenuBuilder<{}, SessionState>(session, 'shop')
       label: 'Add to Cart',
       action: async (ctx) => {
         const cart = ctx.sessionState.get('cart') ?? [];
-        ctx.sessionState.set('cart', [...cart, ctx.state.get('itemId')]);
+        ctx.sessionState.set('cart', [...cart, ctx.sessionState.get('selectedItemId')]);
       },
     },
     {
@@ -130,4 +130,4 @@ Keep `sessionState` and your cache layer separate:
 - **`sessionState`** — ephemeral, session-scoped inter-menu context
 - **External cache** — cross-session, explicitly invalidatable, backed by your DB
 
-See [Session Persistence & Scope](/docs/advanced/tracing-and-debugging) for more on the in-memory nature of sessions and how to design around it.
+Sessions are in-memory and do not persist across bot restarts — design your session state accordingly.
