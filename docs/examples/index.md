@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Examples
 
-Each example is a standalone, runnable bot that demonstrates a specific set of FlowCord features. They build on each other — later examples assume familiarity with earlier ones.
+Each example corresponds to a runnable bot in the `flowcord-core/examples/` directory. The snippets on these pages highlight the key FlowCord patterns and may omit boilerplate for brevity — refer to the source files for complete, runnable code. They build on each other — later examples assume familiarity with earlier ones.
 
 ## All examples
 

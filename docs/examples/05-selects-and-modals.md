@@ -8,7 +8,7 @@ sidebar_position: 6
 
 An event planner with two menus: the first uses a select menu to pick a theme, the second uses two modals — one to create event details and one to edit them.
 
-**Concepts:** [select menus](/docs/components/select-menus), [modals](/docs/components/modals), [opensModal](/docs/components/buttons#modal-trigger-buttons), [session state](/docs/core-concepts/state-management#session-state----ctxsessionstate)
+**Concepts:** [select menus](/docs/components/select-menus), [modals](/docs/components/modals), [opensModal](/docs/components/buttons#modal-trigger-buttons), [session state](/docs/core-concepts/state-management#session-state-ctxsessionstate)
 
 ---
 
@@ -135,12 +135,13 @@ flowcord.registerMenu('event-details', (session) =>
     })
 
     // Two modals — each with a unique id matched by opensModal on the buttons below
+    // ModalBuilder.addComponents() setup is omitted below for brevity.
+    // See discord.js docs for TextInputBuilder configuration and the full
+    // source in flowcord-core/examples/ for a complete runnable version.
     .setModal((ctx) => [
       {
         id: 'create-event',
-        builder: new ModalBuilder()
-          .setTitle('Create Event')
-          .addComponents(/* TextInput action rows — see discord.js docs */),
+        builder: new ModalBuilder().setTitle('Create Event'), // + addComponents(...)
         onSubmit: async (ctx, fields) => {
           ctx.state.set('name',        fields.getTextInputValue('event-name'));
           ctx.state.set('description', fields.getTextInputValue('event-description') || null);
@@ -150,9 +151,7 @@ flowcord.registerMenu('event-details', (session) =>
       },
       {
         id: 'edit-event',
-        builder: new ModalBuilder()
-          .setTitle('Edit Event')
-          .addComponents(/* Pre-filled TextInput action rows */),
+        builder: new ModalBuilder().setTitle('Edit Event'), // + addComponents(...)
         onSubmit: async (ctx, fields) => {
           ctx.state.set('name',        fields.getTextInputValue('event-name'));
           ctx.state.set('description', fields.getTextInputValue('event-description') || null);
