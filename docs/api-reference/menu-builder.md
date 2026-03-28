@@ -20,7 +20,7 @@ MenuBuilder<TState, TSessionState, TCtx, TMode>
 |---|---|---|
 | `TState` | `Record<string, unknown>` | Typed menu-local state shape |
 | `TSessionState` | `Record<string, unknown>` | Typed session-wide state shape |
-| `TCtx` | `MenuContext<TState, TSessionState>` | Context type (extended by builder subclasses) |
+| `TCtx` | `MenuContext<TState, TSessionState, Record<string, unknown>>` | Context type (extended by builder subclasses) |
 | `TMode` | `'unset'` | Tracks render mode — narrows to `'embeds'` or `'layout'` when the respective method is called |
 
 `TMode` enforces at compile time that embed-mode methods (`.setEmbeds`, `.setButtons`, `.setSelectMenu`) cannot be called alongside layout-mode methods (`.setLayout`).

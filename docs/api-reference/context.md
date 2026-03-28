@@ -198,7 +198,7 @@ session: MenuSessionLike
 |---|---|---|
 | `ctx.session.id` | `string` | Unique session identifier |
 | `ctx.session.isCancelled` | `boolean` | Whether the session was cancelled |
-| `ctx.session.isCompleted` | `boolean` | Whether a sub-menu completion is in progress |
+| `ctx.session.isCompleted` | `boolean` | Whether the session has ended (closed, timed out, or cancelled) |
 | `ctx.session.canGoBack` | `boolean` | Whether the navigation stack has entries |
 | `ctx.session.sessionState` | `StateStore` | Same as `ctx.sessionState` |
 
