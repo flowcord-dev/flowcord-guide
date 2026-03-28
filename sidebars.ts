@@ -32,7 +32,9 @@ const sidebars: SidebarsConfig = {
       label: 'Components',
       link: {type: 'generated-index'},
       items: [
-        // PR 6
+        'components/buttons',
+        'components/select-menus',
+        'components/modals',
       ],
     },
     {
