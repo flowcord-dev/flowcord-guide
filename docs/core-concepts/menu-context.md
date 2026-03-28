@@ -53,6 +53,8 @@ new MenuBuilder<{ count: number }>(session, 'counter')
       },
     },
   ])
+  // ...
+  .build();
 ```
 
 State is reset when the menu is recreated (e.g. on `goBack()`), unless the menu opts into `.setPreserveStateOnReturn()`. See [State Management](/docs/core-concepts/state-management) for the full picture.
@@ -180,7 +182,7 @@ Use `startIndex` and `endIndex` to slice your data array in `setEmbeds` or `setL
 MenuBuilder<
   TState extends Record<string, unknown>,       // ctx.state type
   TSessionState extends Record<string, unknown>, // ctx.sessionState type
-  TCtx extends MenuContext,                      // ctx type (for builder subclasses)
+  TCtx extends MenuContext<TState, TSessionState>, // ctx type (for builder subclasses)
   TMode extends 'unset' | 'embeds' | 'layout'   // render mode (enforced at compile time)
 >
 ```
