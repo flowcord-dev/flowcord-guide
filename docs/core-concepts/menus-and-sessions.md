@@ -16,7 +16,7 @@ Each session:
 - Owns **session state** (`ctx.sessionState`) — a key-value store shared across all menus in the session
 - Runs an **interaction loop** — continuously rendering, waiting for input, and dispatching actions until the session ends
 
-Sessions are in-memory and process-scoped. See [Session Persistence & Scope](/docs/advanced/tracing-and-debugging) for what this means in practice.
+Sessions are in-memory and process-scoped. See [Session Persistence & Scope](/docs/advanced/session-persistence) for what this means in practice.
 
 ## What is a menu?
 
