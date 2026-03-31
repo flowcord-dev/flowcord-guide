@@ -21,7 +21,7 @@ FlowCord is optimized for **short-lived, synchronous interactive flows** — thi
 - Paginated lists and selection menus
 - Inline forms with modals
 
-Bot applications with longer lifecycles, such as gameplay or commerce bots, can also thrive with FlowCord - assuming that user data is backed in a database
+Bot applications with longer lifecycles, such as gameplay or commerce bots, can also thrive with FlowCord — assuming that user data is backed in a database.
 
 The default timeout (5 minutes) reflects this. Even with a custom timeout, sessions should be treated as transient UI shells, not durable state containers.
 
