@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -31,7 +31,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/flowcord-dev/flowcord-guide/tree/master/',
+          editUrl:
+            'https://github.com/flowcord-dev/flowcord-guide/tree/master/',
         },
         blog: false,
         theme: {
@@ -86,9 +87,15 @@ const config: Config = {
         {
           title: 'Docs',
           items: [
-            {label: 'Introduction', to: '/docs/introduction'},
-            {label: 'Getting Started', to: '/docs/getting-started/installation'},
-            {label: 'API Reference', to: '/docs/api-reference/flowcord-class'},
+            { label: 'Introduction', to: '/docs/introduction' },
+            {
+              label: 'Getting Started',
+              to: '/docs/getting-started/installation',
+            },
+            {
+              label: 'API Reference',
+              to: '/docs/api-reference/flowcord-class',
+            },
           ],
         },
         {
