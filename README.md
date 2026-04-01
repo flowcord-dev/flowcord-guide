@@ -5,13 +5,13 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ## Installation
 
 ```bash
-yarn
+npm install
 ```
 
 ## Local Development
 
 ```bash
-yarn start
+npm run start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,23 +19,24 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ## Deployment
 
-Using SSH:
+This site is configured to deploy to the custom root domain `https://flowcord.dev/`.
+Deployments are handled by GitHub Actions from pushes to `master`.
+The workflow builds the site and publishes the `build` artifact to GitHub Pages.
 
-```bash
-USE_SSH=true yarn deploy
-```
+### Triggering deployment
 
-Not using SSH:
+1. Merge your changes into `master`.
+2. The workflow in `.github/workflows/deploy-pages.yml` runs automatically.
+3. GitHub Pages serves the new build when the workflow completes.
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+### Notes
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- `static/CNAME` is committed so the custom domain is preserved in each build.
+- You can still run `npm run build` locally to verify output before merging.

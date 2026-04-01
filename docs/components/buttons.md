@@ -8,17 +8,17 @@ Buttons are defined via `.setButtons()` in embeds mode, or via the `button()` he
 
 ## Button properties
 
-| Property | Type | Required | Description |
-|---|---|---|---|
-| `label` | `string` | Yes | Text displayed on the button |
-| `style` | `ButtonStyle` | Yes | Button color (see below) |
-| `action` | `Action` | Conditional | Callback executed on click |
-| `opensModal` | `boolean \| string` | Conditional | Trigger a modal instead of running an action |
-| `url` | `string` | Conditional | URL for link buttons — requires `ButtonStyle.Link` |
-| `disabled` | `boolean` | No | Renders the button as unclickable |
-| `emoji` | `string` | No | Emoji displayed on the button |
-| `id` | `string` | No | Custom component ID — auto-assigned if omitted |
-| `fixedPosition` | `'start' \| 'end'` | No | Pins button across pagination pages (embeds mode only) |
+| Property        | Type                | Required    | Description                                            |
+| --------------- | ------------------- | ----------- | ------------------------------------------------------ |
+| `label`         | `string`            | Yes         | Text displayed on the button                           |
+| `style`         | `ButtonStyle`       | Yes         | Button color (see below)                               |
+| `action`        | `Action`            | Conditional | Callback executed on click                             |
+| `opensModal`    | `boolean \| string` | Conditional | Trigger a modal instead of running an action           |
+| `url`           | `string`            | Conditional | URL for link buttons — requires `ButtonStyle.Link`     |
+| `disabled`      | `boolean`           | No          | Renders the button as unclickable                      |
+| `emoji`         | `string`            | No          | Emoji displayed on the button                          |
+| `id`            | `string`            | No          | Custom component ID — auto-assigned if omitted         |
+| `fixedPosition` | `'start' \| 'end'`  | No          | Pins button across pagination pages (embeds mode only) |
 
 `action` or `opensModal` must be present unless `disabled: true` or the button is a link button.
 
@@ -30,13 +30,13 @@ Buttons are defined via `.setButtons()` in embeds mode, or via the `button()` he
 import { ButtonStyle } from 'discord.js';
 ```
 
-| Style | Color | Use |
-|---|---|---|
-| `ButtonStyle.Primary` | Blue | Primary action |
-| `ButtonStyle.Secondary` | Grey | Secondary or neutral action |
-| `ButtonStyle.Success` | Green | Confirm, save, submit |
-| `ButtonStyle.Danger` | Red | Delete, remove, destructive action |
-| `ButtonStyle.Link` | No background | URL link — no interaction sent to bot |
+| Style                   | Color         | Use                                   |
+| ----------------------- | ------------- | ------------------------------------- |
+| `ButtonStyle.Primary`   | Blue          | Primary action                        |
+| `ButtonStyle.Secondary` | Grey          | Secondary or neutral action           |
+| `ButtonStyle.Success`   | Green         | Confirm, save, submit                 |
+| `ButtonStyle.Danger`    | Red           | Delete, remove, destructive action    |
+| `ButtonStyle.Link`      | No background | URL link — no interaction sent to bot |
 
 ## Basic usage
 
@@ -105,7 +105,7 @@ To open a modal when a button is clicked, set `opensModal` instead of `action`. 
 }
 ```
 
-See [Modals](./modals.md) for how to define the modal the button triggers.
+See [Modals](./modals) for how to define the modal the button triggers.
 
 ## Fixed position buttons (pagination)
 

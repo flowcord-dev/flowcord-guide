@@ -8,7 +8,7 @@ sidebar_position: 6
 
 An event planner with two menus: the first uses a select menu to pick a theme, the second uses two modals — one to create event details and one to edit them.
 
-**Concepts:** [select menus](/docs/components/select-menus), [modals](/docs/components/modals), [opensModal](/docs/components/buttons#modal-trigger-buttons), [session state](/docs/core-concepts/state-management#session-state-ctxsessionstate)
+**Concepts:** [select menus](/docs/components/select-menus), [modals](/docs/components/modals), [opensModal](/docs/components/buttons#modal-trigger-buttons), [session state](/docs/core-concepts/state-management#session-state--ctxsessionstate)
 
 ---
 
@@ -23,7 +23,12 @@ import {
   TextInputBuilder,
   TextInputStyle,
 } from 'discord.js';
-import { FlowCord, MenuBuilder, goTo, closeMenu } from '@flowcord/core';
+import {
+  FlowCord,
+  MenuBuilder,
+  goTo,
+  closeMenu,
+} from '@flowcord/core';
 
 type ThemePickerState = { selectedTheme: string | null };
 type EventSessionState = { eventTheme: string };
@@ -35,11 +40,15 @@ type EventDetailsState = {
 };
 
 const themes = [
-  { label: '🎃 Halloween Bash',    value: 'halloween',  color: 0xff6600 },
-  { label: '🎄 Winter Wonderland', value: 'winter',     color: 0x00bfff },
-  { label: '🌴 Tropical Luau',     value: 'tropical',   color: 0x00cc66 },
-  { label: '🚀 Space Odyssey',     value: 'space',      color: 0x6600cc },
-  { label: '🎭 Masquerade Ball',   value: 'masquerade', color: 0xcc0066 },
+  { label: '🎃 Halloween Bash', value: 'halloween', color: 0xff6600 },
+  { label: '🎄 Winter Wonderland', value: 'winter', color: 0x00bfff },
+  { label: '🌴 Tropical Luau', value: 'tropical', color: 0x00cc66 },
+  { label: '🚀 Space Odyssey', value: 'space', color: 0x6600cc },
+  {
+    label: '🎭 Masquerade Ball',
+    value: 'masquerade',
+    color: 0xcc0066,
+  },
 ];
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -49,7 +58,10 @@ const flowcord = new FlowCord({ client });
 // Menu 1: Theme Picker (Select Menu)
 // ---------------------------------------------------------------------------
 flowcord.registerMenu('event', (session) =>
-  new MenuBuilder<ThemePickerState, EventSessionState>(session, 'event')
+  new MenuBuilder<ThemePickerState, EventSessionState>(
+    session,
+    'event',
+  )
     .setup((ctx) => {
       ctx.state.set('selectedTheme', null);
     })
@@ -64,7 +76,7 @@ flowcord.registerMenu('event', (session) =>
           .setDescription(
             selected
               ? `You selected: **${theme?.label}**\n\nPress "Plan Event" to fill in the details.`
-              : 'Choose a theme for your event from the dropdown below.'
+              : 'Choose a theme for your event from the dropdown below.',
           )
           .setColor(theme?.color ?? 0x95a5a6),
       ];
@@ -73,7 +85,9 @@ flowcord.registerMenu('event', (session) =>
     .setSelectMenu(() => ({
       builder: new StringSelectMenuBuilder()
         .setPlaceholder('🎨 Choose a theme...')
-        .addOptions(themes.map((t) => ({ label: t.label, value: t.value }))),
+        .addOptions(
+          themes.map((t) => ({ label: t.label, value: t.value })),
+        ),
       onSelect: async (ctx, values) => {
         ctx.state.set('selectedTheme', values[0]);
         // Store in session state so the next menu can read it
@@ -92,31 +106,41 @@ flowcord.registerMenu('event', (session) =>
     ])
     .setCancellable()
     .setTrackedInHistory()
-    .build()
+    .build(),
 );
 
 // ---------------------------------------------------------------------------
 // Menu 2: Event Details (Two Modals)
 // ---------------------------------------------------------------------------
 flowcord.registerMenu('event-details', (session) =>
-  new MenuBuilder<EventDetailsState, EventSessionState>(session, 'event-details')
+  new MenuBuilder<EventDetailsState, EventSessionState>(
+    session,
+    'event-details',
+  )
     .setup((ctx) => {
       ctx.state.set('name', null);
       ctx.state.set('description', null);
       ctx.state.set('maxGuests', null);
       // Read theme from session state (set in the previous menu)
-      ctx.state.set('theme', ctx.sessionState.get('eventTheme') ?? null);
+      ctx.state.set(
+        'theme',
+        ctx.sessionState.get('eventTheme') ?? null,
+      );
     })
 
     .setEmbeds((ctx) => {
       const name = ctx.state.get('name');
-      const theme = themes.find((t) => t.value === ctx.state.get('theme'));
+      const theme = themes.find(
+        (t) => t.value === ctx.state.get('theme'),
+      );
 
       if (!name) {
         return [
           new EmbedBuilder()
             .setTitle('📝 Event Details')
-            .setDescription(`Theme: **${theme?.label ?? 'None'}**\n\nClick "Fill Details" to enter your event information.`)
+            .setDescription(
+              `Theme: **${theme?.label ?? 'None'}**\n\nClick "Fill Details" to enter your event information.`,
+            )
             .setColor(theme?.color ?? 0x95a5a6),
         ];
       }
@@ -124,13 +148,26 @@ flowcord.registerMenu('event-details', (session) =>
       return [
         new EmbedBuilder()
           .setTitle(`🎉 ${name}`)
-          .setDescription(ctx.state.get('description') ?? 'No description provided.')
+          .setDescription(
+            ctx.state.get('description') ??
+              'No description provided.',
+          )
           .addFields(
-            { name: '🎨 Theme',      value: theme?.label ?? 'None',              inline: true },
-            { name: '👥 Max Guests', value: ctx.state.get('maxGuests') ?? 'Unlimited', inline: true }
+            {
+              name: '🎨 Theme',
+              value: theme?.label ?? 'None',
+              inline: true,
+            },
+            {
+              name: '👥 Max Guests',
+              value: ctx.state.get('maxGuests') ?? 'Unlimited',
+              inline: true,
+            },
           )
           .setColor(theme?.color ?? 0x2ecc71)
-          .setFooter({ text: 'Click "Edit Details" to modify, or "Confirm" to finalize.' }),
+          .setFooter({
+            text: 'Click "Edit Details" to modify, or "Confirm" to finalize.',
+          }),
       ];
     })
 
@@ -143,9 +180,18 @@ flowcord.registerMenu('event-details', (session) =>
         id: 'create-event',
         builder: new ModalBuilder().setTitle('Create Event'), // + addComponents(...)
         onSubmit: async (ctx, fields) => {
-          ctx.state.set('name',        fields.getTextInputValue('event-name'));
-          ctx.state.set('description', fields.getTextInputValue('event-description') || null);
-          ctx.state.set('maxGuests',   fields.getTextInputValue('event-max-guests')  || null);
+          ctx.state.set(
+            'name',
+            fields.getTextInputValue('event-name'),
+          );
+          ctx.state.set(
+            'description',
+            fields.getTextInputValue('event-description') || null,
+          );
+          ctx.state.set(
+            'maxGuests',
+            fields.getTextInputValue('event-max-guests') || null,
+          );
           // Menu re-renders automatically after onSubmit
         },
       },
@@ -153,9 +199,18 @@ flowcord.registerMenu('event-details', (session) =>
         id: 'edit-event',
         builder: new ModalBuilder().setTitle('Edit Event'), // + addComponents(...)
         onSubmit: async (ctx, fields) => {
-          ctx.state.set('name',        fields.getTextInputValue('event-name'));
-          ctx.state.set('description', fields.getTextInputValue('event-description') || null);
-          ctx.state.set('maxGuests',   fields.getTextInputValue('event-max-guests')  || null);
+          ctx.state.set(
+            'name',
+            fields.getTextInputValue('event-name'),
+          );
+          ctx.state.set(
+            'description',
+            fields.getTextInputValue('event-description') || null,
+          );
+          ctx.state.set(
+            'maxGuests',
+            fields.getTextInputValue('event-max-guests') || null,
+          );
         },
       },
     ])
@@ -188,7 +243,7 @@ flowcord.registerMenu('event-details', (session) =>
     })
 
     .setReturnable()
-    .build()
+    .build(),
 );
 
 client.on('interactionCreate', async (interaction) => {
@@ -201,7 +256,9 @@ client.on('interactionCreate', async (interaction) => {
   }
 });
 
-client.once('ready', () => console.log(`Logged in as ${client.user?.tag}`));
+client.once('ready', () =>
+  console.log(`Logged in as ${client.user?.tag}`),
+);
 client.login(process.env.DISCORD_BOT_TOKEN);
 ```
 

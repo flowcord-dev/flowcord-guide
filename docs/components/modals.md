@@ -10,11 +10,11 @@ The `builder` field accepts a standard Discord.js [`ModalBuilder`](https://disco
 
 ## Modal config properties
 
-| Property | Type | Required | Description |
-|---|---|---|---|
-| `builder` | `ModalBuilder` | Yes | Discord.js modal builder with text inputs configured |
-| `onSubmit` | `(ctx, fields) => Awaitable<void>` | No | Callback fired on submission |
-| `id` | `string` | No | Required when the menu has more than one modal |
+| Property   | Type                               | Required | Description                                          |
+| ---------- | ---------------------------------- | -------- | ---------------------------------------------------- |
+| `builder`  | `ModalBuilder`                     | Yes      | Discord.js modal builder with text inputs configured |
+| `onSubmit` | `(ctx, fields) => Awaitable<void>` | No       | Callback fired on submission                         |
+| `id`       | `string`                           | No       | Required when the menu has more than one modal       |
 
 ## Single modal
 
@@ -75,7 +75,8 @@ When a menu has more than one modal, give each an `id` and use that ID in `opens
 ## The `onSubmit` callback
 
 ```ts
-onSubmit: (ctx: MenuContext, fields: ModalSubmitFields) => Awaitable<void>
+onSubmit: (ctx: MenuContext, fields: ModalSubmitFields) =>
+  Awaitable<void>;
 ```
 
 `fields` is Discord.js's [`ModalSubmitFields`](https://discord.js.org/docs/packages/discord.js/main/ModalSubmitFields:Class) — refer to the discord.js documentation for the full access API. Example:
@@ -90,7 +91,7 @@ onSubmit: async (ctx, fields) => {
 
 ## Button configuration
 
-See [Buttons — Modal trigger buttons](./buttons.md#modal-trigger-buttons) for the `opensModal` property on button configs.
+See [Buttons — Modal trigger buttons](./buttons#modal-trigger-buttons) for the `opensModal` property on button configs.
 
 :::note
 `opensModal` buttons must not be deferred before the modal is shown. FlowCord handles this automatically — do not set `action` alongside `opensModal` expecting both to run. If both are present, `opensModal` takes precedence.
