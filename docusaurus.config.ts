@@ -75,6 +75,11 @@ const config: Config = {
           label: 'API Reference',
         },
         {
+          href: 'https://discord.gg/tcTqa5aKh9',
+          label: 'Discord',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/flowcord-dev/flowcord-core',
           label: 'GitHub',
           position: 'right',
@@ -99,7 +104,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Open Source',
           items: [
             {
               label: 'GitHub',
@@ -108,6 +113,15 @@ const config: Config = {
             {
               label: 'npm',
               href: 'https://www.npmjs.com/package/@flowcord/core',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/tcTqa5aKh9',
             },
           ],
         },
